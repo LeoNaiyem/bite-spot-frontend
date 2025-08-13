@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const THEMES = {
   LIGHT: "light",
@@ -23,8 +24,8 @@ function ThemeToggle() {
   };
 
   return (
-    <button className="btn btn-outline" onClick={toggleTheme}>
-      {theme === THEMES.LIGHT ? "Dark" : "Light"}
+    <button className="text-lg p-2 rounded-full" onClick={toggleTheme}>
+      {theme === THEMES.LIGHT ? <MdDarkMode /> : <MdLightMode/>}
     </button>
   );
 }

@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+  .category-name{
+    @apply text-3xl absolute bottom-10 text-center w-full uppercase text-white/80 font-semibold;
+  }
+}
+
+/* customize */
+.carousel .thumbs-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
