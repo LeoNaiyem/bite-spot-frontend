@@ -8,9 +8,13 @@ export default function RecommendCard({ item, index }) {
         <p className="text-gray-500">{description}</p>
         <button
           className={`
-            uppercase mt-6 px-5 font-semibold
+            uppercase mt-6 px-5 font-semibold 
             rounded-lg py-4 border-b-2 text-yellow-500 border-yellow-500
-            ${index === 1 ? "bg-black" : "bg-slate-200  "}
+            ${
+              index === 1
+                ? "bg-black hover:bg-slate-200"
+                : "bg-slate-200 hover:bg-black "
+            }
             
             `}
         >

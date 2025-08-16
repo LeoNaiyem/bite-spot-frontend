@@ -14,3 +14,6 @@
   display: flex;
   justify-content: center;
 }
+.swiper-button-prev, .swiper-button-next{
+  color: rgb(234 179 8) !important;
+}

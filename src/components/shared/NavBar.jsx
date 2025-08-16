@@ -1,34 +1,53 @@
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
+import cartIcon from "../../assets/icon/notification-cart.png";
 import logo from "../../assets/images/logo.png";
 import ThemeToggle from "./ThemeToggler";
 
 export const NavBar = () => {
+  const getNavLinkClass = ({ isActive }) =>
+    `text-white bg-transparent hover:bg-transparent active:bg-transparent focus:bg-transparent focus:text-yellow-500 active:text-yellow-500 ${
+      isActive ? "font-semibold text-yellow-500 underline" : ""
+    }`;
+
   const navLinks = (
     <>
       <li>
-        <a>Item 1</a>
+        <NavLink to="/" className={getNavLinkClass}>
+          HOME
+        </NavLink>
       </li>
       <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li>
-              <a>Submenu 1</a>
-            </li>
-            <li>
-              <a>Submenu 2</a>
-            </li>
-          </ul>
-        </details>
+        <NavLink to="/contact" className={getNavLinkClass}>
+          CONTACT US
+        </NavLink>
       </li>
       <li>
-        <a>Item 3</a>
+        <NavLink to="/dashboard" className={getNavLinkClass}>
+          DASHBOARD
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/menu" className={getNavLinkClass}>
+          OUR MENU
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/shop" className={getNavLinkClass}>
+          OUR SHOP
+          <img
+            className="w-8 h-8 rounded-full object-cover"
+            src={cartIcon}
+            alt="cart icon"
+          />
+          <span className="badge badge-sm">99+</span>
+        </NavLink>
       </li>
     </>
   );
+
   return (
     <header className="h-20 fixed z-10 top-0 left-0 w-full">
-      <div className="navbar bg-black/50">
+      <div className="navbar bg-black/50 flex justify-center items-center">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -59,11 +78,9 @@ export const NavBar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+          <ul className="menu flex items-center menu-horizontal px-1">{navLinks}</ul>
         </div>
-        <div className="navbar-end">
-          <ThemeToggle />
-        </div>
+        <ThemeToggle />
       </div>
     </header>
   );

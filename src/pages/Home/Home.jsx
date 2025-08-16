@@ -5,6 +5,10 @@ import Category from "../../components/Home/Category";
 import FeaturedCard from "../../components/Home/FeaturedCard";
 import FoodMenu from "../../components/Home/FoodMenu";
 import RecommendCard from "../../components/Home/RecommendCard";
+import Testimonials from "../../components/Home/Testimonials";
+
+import { Navigation } from "swiper/modules";
+import { Swiper } from "swiper/react";
 import Button from "../../components/shared/Button";
 import SectionTitle from "../../components/shared/SectionTitle";
 
@@ -75,7 +79,7 @@ export default function Home() {
         </section>
       </main>
       <section
-        className="bg-cover bg-center h-[850px] py-5 mb-32"
+        className="bg-cover bg-center h-[850px] py-5 mb-24"
         style={{ backgroundImage: `url(${featuredImage})` }}
       >
         <SectionTitle title="FROM OUR MENU" subtitle="---Check it out---" />
@@ -94,46 +98,18 @@ export default function Home() {
               Eaque repellat recusandae ad laudantium tempore consequatur
               consequuntur omnis ullam maxime tenetur.
             </p>
-            <Button />
+            <Button borderColor="white" btnName="read more" />
           </div>
         </div>
       </section>
-      <section className="mb-32 w-[1320px] mx-auto">
+      <section className="mb-24 w-[1320px] mx-auto">
         <SectionTitle
           title="TESTIMONIALS"
           subtitle="---What Our Clients Say---"
         />
-        <div>
-          <div className="rating">
-            <input
-              type="radio"
-              name="rating-2"
-              className="mask mask-star-2 bg-orange-400"
-            />
-            <input
-              type="radio"
-              name="rating-2"
-              className="mask mask-star-2 bg-orange-400"
-              defaultChecked
-            />
-            <input
-              type="radio"
-              name="rating-2"
-              className="mask mask-star-2 bg-orange-400"
-            />
-            <input
-              type="radio"
-              name="rating-2"
-              className="mask mask-star-2 bg-orange-400"
-            />
-            <input
-              type="radio"
-              name="rating-2"
-              className="mask mask-star-2 bg-orange-400"
-            />
-          </div>
-          
-        </div>
+        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+            <Testimonials/>
+        </Swiper>
       </section>
     </>
   );
